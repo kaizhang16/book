@@ -97,7 +97,7 @@ work through the examples that illustrate them:
 ### Variable Scope
 
 We’ve walked through an example of a Rust program already in Chapter 2. Now
-that we’re past basic syntax, we won’t include all the `fn main() {` code in
+that we’re past basic syntax, we won’t include all the `fn main() {}` code in
 examples, so if you’re following along, you’ll have to put the following
 examples inside a `main` function manually. As a result, our examples will be a
 bit more concise, letting us focus on the actual details rather than
