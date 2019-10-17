@@ -293,7 +293,7 @@ let len = String::from("Здравствуйте").len();
 ```
 
 Asked how long the string is, you might say 12. However, Rust’s answer is 24:
-that’s the number of bytes it takes to encode “Здравствуйте” in UTF-8, because
+that’s the number of bytes it takes to encode Здравствуйте in UTF-8, because
 each Unicode scalar value in that string takes 2 bytes of storage. Therefore,
 an index into the string’s bytes will not always correlate to a valid Unicode
 scalar value. To demonstrate, consider this invalid Rust code:
@@ -321,7 +321,7 @@ Another point about UTF-8 is that there are actually three relevant ways to
 look at strings from Rust’s perspective: as bytes, scalar values, and grapheme
 clusters (the closest thing to what we would call *letters*).
 
-If we look at the Hindi word “नमस्ते” written in the Devanagari script, it is
+If we look at the Hindi word नमस्ते written in the Devanagari script, it is
 stored as a vector of `u8` values that looks like this:
 
 ```text
@@ -391,7 +391,7 @@ can crash your program.
 Fortunately, you can access elements in a string in other ways.
 
 If you need to perform operations on individual Unicode scalar values, the best
-way to do so is to use the `chars` method. Calling `chars` on “नमस्ते” separates
+way to do so is to use the `chars` method. Calling `chars` on नमस्ते separates
 out and returns six values of type `char`, and you can iterate over the result
 to access each element:
 
