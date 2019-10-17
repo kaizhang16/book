@@ -162,7 +162,7 @@ a slice that contains a pointer to the 7th byte of `s` with a length value of 5.
 
 Figure 4-6 shows this in a diagram.
 
-<img alt="world containing a pointer to the 6th byte of String s and a length 5" src="img/trpl04-06.svg" class="center" style="width: 50%;" />
+![](img/trpl04-06.pdf){width=50%}
 
 <span class="caption">Figure 4-6: String slice referring to part of a
 `String`</span>

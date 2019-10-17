@@ -33,7 +33,7 @@ function return value is gone. Second, note that we pass `&s1` into
 These ampersands are *references*, and they allow you to refer to some value
 without taking ownership of it. Figure 4-5 shows a diagram.
 
-<img alt="&String s pointing at String s1" src="img/trpl04-05.svg" class="center" />
+![](img/trpl04-05.pdf)
 
 <span class="caption">Figure 4-5: A diagram of `&String s` pointing at `String
 s1`</span>
