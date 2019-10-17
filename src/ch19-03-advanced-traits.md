@@ -53,7 +53,7 @@ Listing 13-21, we specified that the `Item` type was `u32`:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Iterator for Counter {
     type Item = u32;
 
@@ -431,7 +431,7 @@ Listing 19-20, we’ll get a compilation error.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     println!("A baby dog is called a {}", Animal::baby_name());
 }
@@ -500,7 +500,7 @@ A baby dog is called a puppy
 
 In general, fully qualified syntax is defined as follows:
 
-```rust,ignore
+```rust
 <Type as Trait>::function(receiver_if_method, next_arg, ...);
 ```
 

@@ -130,7 +130,7 @@ code in Listing 15-9 won’t compile because Rust doesn’t know how to derefere
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let x = 5;
     let y = MyBox::new(x);
@@ -200,7 +200,7 @@ it knows how to dereference.
 When we entered `*y` in Listing 15-9, behind the scenes Rust actually ran this
 code:
 
-```rust,ignore
+```rust
 *(y.deref())
 ```
 

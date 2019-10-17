@@ -27,7 +27,7 @@ in a bit.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 mod front_of_house {
     mod hosting {
         fn add_to_waitlist() {}
@@ -133,7 +133,7 @@ access to the `add_to_waitlist` function in the child module, so we mark the
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 mod front_of_house {
     pub mod hosting {
         fn add_to_waitlist() {}

@@ -111,7 +111,7 @@ particular type.
 After implementing the trait, we can call the methods on instances of
 `NewsArticle` and `Tweet` in the same way we call regular methods, like this:
 
-```rust,ignore
+```rust
 let tweet = Tweet {
     username: String::from("horse_ebooks"),
     content: String::from("of course, as you probably already know, people"),
@@ -187,7 +187,7 @@ directly, we’ve provided a default implementation and specified that
 `NewsArticle` implements the `Summary` trait. As a result, we can still call
 the `summarize` method on an instance of `NewsArticle`, like this:
 
-```rust,ignore
+```rust
 let article = NewsArticle {
     headline: String::from("Penguins win the Stanley Cup Championship!"),
     location: String::from("Pittsburgh, PA, USA"),
@@ -228,7 +228,7 @@ pub trait Summary {
 To use this version of `Summary`, we only need to define `summarize_author`
 when we implement the trait on a type:
 
-```rust,ignore
+```rust
 impl Summary for Tweet {
     fn summarize_author(&self) -> String {
         format!("@{}", self.username)
@@ -242,7 +242,7 @@ definition of `summarize_author` that we’ve provided. Because we’ve implemen
 `summarize_author`, the `Summary` trait has given us the behavior of the
 `summarize` method without requiring us to write any more code.
 
-```rust,ignore
+```rust
 let tweet = Tweet {
     username: String::from("horse_ebooks"),
     content: String::from("of course, as you probably already know, people"),
@@ -269,7 +269,7 @@ the `summarize` method on its `item` parameter, which is of some type that
 implements the `Summary` trait. To do this, we can use the `impl Trait`
 syntax, like this:
 
-```rust,ignore
+```rust
 pub fn notify(item: impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
@@ -289,7 +289,7 @@ The `impl Trait` syntax works for straightforward cases but is actually
 syntax sugar for a longer form, which is called a *trait bound*; it looks like
 this:
 
-```rust,ignore
+```rust
 pub fn notify<T: Summary>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }
@@ -304,7 +304,7 @@ cases. The trait bound syntax can express more complexity in other cases. For
 example, we can have two parameters that implement `Summary`. Using the `impl
 Trait` syntax looks like this:
 
-```rust,ignore
+```rust
 pub fn notify(item1: impl Summary, item2: impl Summary) {
 ```
 
@@ -313,7 +313,7 @@ types, using `impl Trait` would be appropriate (as long as both types implement
 `Summary`). If we wanted to force both parameters to have the same type, that’s
 only possible to express using a trait bound, like this:
 
-```rust,ignore
+```rust
 pub fn notify<T: Summary>(item1: T, item2: T) {
 ```
 
@@ -328,13 +328,13 @@ display formatting on `item` as well as the `summarize` method: we specify in
 the `notify` definition that `item` must implement both `Display` and
 `Summary`. We can do so using the `+` syntax:
 
-```rust,ignore
+```rust
 pub fn notify(item: impl Summary + Display) {
 ```
 
 The `+` syntax is also valid with trait bounds on generic types:
 
-```rust,ignore
+```rust
 pub fn notify<T: Summary + Display>(item: T) {
 ```
 
@@ -350,13 +350,13 @@ making the function signature hard to read. For this reason, Rust has alternate
 syntax for specifying trait bounds inside a `where` clause after the function
 signature. So instead of writing this:
 
-```rust,ignore
+```rust
 fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
 ```
 
 we can use a `where` clause, like this:
 
-```rust,ignore
+```rust
 fn some_function<T, U>(t: T, u: U) -> i32
     where T: Display + Clone,
           U: Clone + Debug
@@ -372,7 +372,7 @@ bounds.
 We can also use the `impl Trait` syntax in the return position to return a
 value of some type that implements a trait, as shown here:
 
-```rust,ignore
+```rust
 fn returns_summarizable() -> impl Summary {
     Tweet {
         username: String::from("horse_ebooks"),
@@ -399,7 +399,7 @@ However, you can only use `impl Trait` if you’re returning a single type. For
 example, this code that returns either a `NewsArticle` or a `Tweet` with the
 return type specified as `impl Summary` wouldn’t work:
 
-```rust,ignore,does_not_compile
+```rust
 fn returns_summarizable(switch: bool) -> impl Summary {
     if switch {
         NewsArticle {
@@ -452,7 +452,7 @@ slices of any type that we can compare. We don’t need to bring `PartialOrd`
 into scope because it’s in the prelude. Change the signature of `largest` to
 look like this:
 
-```rust,ignore
+```rust
 fn largest<T: PartialOrd>(list: &[T]) -> T {
 ```
 
@@ -588,7 +588,7 @@ Rust standard library. For example, the standard library implements the
 `ToString` trait on any type that implements the `Display` trait. The `impl`
 block in the standard library looks similar to this code:
 
-```rust,ignore
+```rust
 impl<T: Display> ToString for T {
     // --snip--
 }

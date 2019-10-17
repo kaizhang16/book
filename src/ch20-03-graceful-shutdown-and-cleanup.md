@@ -23,7 +23,7 @@ quite work yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         for worker in &mut self.workers {
@@ -109,7 +109,7 @@ new `Worker`. Make the following changes to fix this error:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
         // --snip--
@@ -128,7 +128,7 @@ The following changes will do so:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         for worker in &mut self.workers {
@@ -182,7 +182,7 @@ We need to adjust the channel to use values of type `Message` rather than type
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: mpsc::Sender<Message>,
@@ -254,7 +254,7 @@ changing our `Drop` implementation to look like Listing 20-25.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         println!("Sending terminate message to all workers.");
@@ -306,7 +306,7 @@ before gracefully shutting down the server, as shown in Listing 20-26.
 
 <span class="filename">Filename: src/bin/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
     let pool = ThreadPool::new(4);
@@ -382,7 +382,7 @@ Here’s the full code for reference:
 
 <span class="filename">Filename: src/bin/main.rs</span>
 
-```rust,ignore
+```rust
 use hello::ThreadPool;
 
 use std::io::prelude::*;

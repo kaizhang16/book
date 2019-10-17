@@ -16,7 +16,7 @@ Listing 12-23:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Config {
     pub fn new(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
@@ -60,7 +60,7 @@ Open your I/O project’s *src/main.rs* file, which should look like this:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -79,7 +79,7 @@ well.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let config = Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
@@ -105,7 +105,7 @@ body.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 impl Config {
     pub fn new(mut args: std::env::Args) -> Result<Config, &'static str> {
         // --snip--
@@ -179,7 +179,7 @@ project, which is reproduced here in Listing 13-28 as it was in Listing 12-19:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut results = Vec::new();
 
@@ -205,7 +205,7 @@ concurrent access to the `results` vector. Listing 13-29 shows this change:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents.lines()
         .filter(|line| line.contains(query))

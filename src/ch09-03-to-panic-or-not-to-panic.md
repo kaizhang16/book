@@ -132,7 +132,7 @@ One way to do this would be to parse the guess as an `i32` instead of only a
 `u32` to allow potentially negative numbers, and then add a check for the
 number being in range, like so:
 
-```rust,ignore
+```rust
 loop {
     // --snip--
 

@@ -28,7 +28,7 @@ for an `add_one` function in a crate named `my_crate`:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 /// Adds one to the number given.
 ///
 /// # Examples
@@ -124,7 +124,7 @@ shown in Listing 14-2:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 //! # My Crate
 //!
 //! `my_crate` is a collection of utilities to make performing certain
@@ -244,7 +244,7 @@ currently defined. Listing 14-4 shows an example of a crate that uses the
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use art::kinds::PrimaryColor;
 use art::utils::mix;
 
@@ -275,7 +275,7 @@ items at the top level, as shown in Listing 14-5:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 //! # Art
 //!
 //! A library for modeling artistic concepts.
@@ -311,7 +311,7 @@ structure in Listing 14-5, as shown in Listing 14-6:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use art::PrimaryColor;
 use art::mix;
 

@@ -80,7 +80,7 @@ allow the player to input a guess. Enter the code in Listing 2-1 into
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::io;
 
 fn main() {
@@ -105,7 +105,7 @@ obtain user input and then print the result as output, we need to bring the
 `io` (input/output) library into scope. The `io` library comes from the
 standard library (which is known as `std`):
 
-```rust,ignore
+```rust
 use std::io;
 ```
 
@@ -120,17 +120,17 @@ features, including the ability to accept user input.
 As you saw in Chapter 1, the `main` function is the entry point into the
 program:
 
-```rust,ignore
+```rust
 fn main() {
 ```
 
 The `fn` syntax declares a new function, the parentheses, `()`, indicate there
-are no parameters, and the curly bracket, `{`, starts the body of the function.
+are no parameters, and the curly bracket, `{}`, starts the body of the function.
 
 As you also learned in Chapter 1, `println!` is a macro that prints a string to
 the screen:
 
-```rust,ignore
+```rust
 println!("Guess the number!");
 
 println!("Please input your guess.");
@@ -143,7 +143,7 @@ from the user.
 
 Next, we’ll create a place to store the user input, like this:
 
-```rust,ignore
+```rust
 let mut guess = String::new();
 ```
 
@@ -151,7 +151,7 @@ Now the program is getting interesting! There’s a lot going on in this little
 line. Notice that this is a `let` statement, which is used to create a
 *variable*. Here’s another example:
 
-```rust,ignore
+```rust
 let foo = bar;
 ```
 
@@ -162,7 +162,7 @@ Mutability”][variables-and-mutability]<!-- ignore --> section in Chapter 3.
 The following example shows how to use `mut` before the variable name to make
 a variable mutable:
 
-```rust,ignore
+```rust
 let foo = 5; // immutable
 let mut bar = 5; // mutable
 ```
@@ -196,7 +196,7 @@ Recall that we included the input/output functionality from the standard
 library with `use std::io;` on the first line of the program. Now we’ll call
 the `stdin` function from the `io` module:
 
-```rust,ignore
+```rust
 io::stdin().read_line(&mut guess)
     .expect("Failed to read line");
 ```
@@ -236,7 +236,7 @@ We’re not quite done with this line of code. Although what we’ve discussed s
 far is a single line of text, it’s only the first part of the single logical
 line of code. The second part is this method:
 
-```rust,ignore
+```rust
 .expect("Failed to read line");
 ```
 
@@ -244,7 +244,7 @@ When you call a method with the `.foo()` syntax, it’s often wise to introduce 
 newline and other whitespace to help break up long lines. We could have
 written this code as:
 
-```rust,ignore
+```rust
 io::stdin().read_line(&mut guess).expect("Failed to read line");
 ```
 
@@ -312,7 +312,7 @@ because you just want to crash this program when a problem occurs, you can use
 Aside from the closing curly brackets, there’s only one more line to discuss in
 the code added so far, which is the following:
 
-```rust,ignore
+```rust
 println!("You guessed: {}", guess);
 ```
 
@@ -526,7 +526,7 @@ Now that you’ve added the `rand` crate to *Cargo.toml*, let’s start using
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::io;
 use rand::Rng;
 
@@ -610,7 +610,7 @@ will explain.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 use std::io;
 use std::cmp::Ordering;
 use rand::Rng;
@@ -704,7 +704,7 @@ do that by adding the following two lines to the `main` function body:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 // --snip--
 
     let mut guess = String::new();
@@ -727,7 +727,7 @@ do that by adding the following two lines to the `main` function body:
 
 The two new lines are:
 
-```rust,ignore
+```rust
 let guess: u32 = guess.trim().parse()
     .expect("Please type a number!");
 ```
@@ -807,7 +807,7 @@ more chances at guessing the number:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 // --snip--
 
     println!("The secret number is: {}", secret_number);
@@ -875,7 +875,7 @@ Let’s program the game to quit when the user wins by adding a `break` statemen
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 // --snip--
 
         match guess.cmp(&secret_number) {
@@ -903,7 +903,7 @@ is converted from a `String` to a `u32`, as shown in Listing 2-5.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 // --snip--
 
 io::stdin().read_line(&mut guess)
@@ -975,7 +975,7 @@ secret number. Listing 2-6 shows the final code.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::io;
 use std::cmp::Ordering;
 use rand::Rng;

@@ -58,7 +58,7 @@ condition was true
 Let’s try changing the value of `number` to a value that makes the condition
 `false` to see what happens:
 
-```rust,ignore
+```rust
 let number = 7;
 ```
 
@@ -78,7 +78,7 @@ following code:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let number = 3;
 
@@ -212,7 +212,7 @@ example, we’ll get an error:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let condition = true;
 
@@ -274,7 +274,7 @@ like this:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     loop {
         println!("again!");

@@ -51,7 +51,7 @@ us that the types don’t match. The error message will then tell us what the
 type of `f` *is*. Let’s try it! We know that the return type of `File::open`
 isn’t of type `u32`, so let’s change the `let f` statement to this:
 
-```rust,ignore,does_not_compile
+```rust
 let f: u32 = File::open("hello.txt");
 ```
 
@@ -94,7 +94,7 @@ Chapter 6.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 use std::fs::File;
 
 fn main() {
@@ -148,7 +148,7 @@ at Listing 9-5, which adds an inner `match` expression.
 <!-- ignore this test because otherwise it creates hello.txt which causes other
 tests to fail lol -->
 
-```rust,ignore
+```rust
 use std::fs::File;
 use std::io::ErrorKind;
 
@@ -194,7 +194,7 @@ E>` type has many methods that accept a closure and are implemented using
 `match` expressions. Using those methods will make your code more concise. A
 more seasoned Rustacean might write this code instead of Listing 9-5:
 
-```rust,ignore
+```rust
 use std::fs::File;
 use std::io::ErrorKind;
 
@@ -229,7 +229,7 @@ call the `panic!` macro for us. Here is an example of `unwrap` in action:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 use std::fs::File;
 
 fn main() {
@@ -253,7 +253,7 @@ panic easier. The syntax of `expect` looks like this:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 use std::fs::File;
 
 fn main() {
@@ -481,7 +481,7 @@ can be a `Result` to be compatible with this `return`.
 Let’s look at what happens if we use the `?` operator in the `main` function,
 which you’ll recall has a return type of `()`:
 
-```rust,ignore,does_not_compile
+```rust
 use std::fs::File;
 
 fn main() {
@@ -518,7 +518,7 @@ The `main` function is special, and there are restrictions on what its return
 type must be. One valid return type for main is `()`, and conveniently, another
 valid return type is `Result<T, E>`, as shown here:
 
-```rust,ignore
+```rust
 use std::error::Error;
 use std::fs::File;
 

@@ -43,7 +43,7 @@ rectangle.
 
 The issue with this code is evident in the signature of `area`:
 
-```rust,ignore
+```rust
 fn area(width: u32, height: u32) -> u32 {
 ```
 
@@ -149,7 +149,7 @@ work, however.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 struct Rectangle {
     width: u32,
     height: u32,

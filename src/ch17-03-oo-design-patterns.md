@@ -34,7 +34,7 @@ because we haven’t implemented the `blog` crate yet.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use blog::Post;
 
 fn main() {
@@ -527,7 +527,7 @@ Let’s consider the first part of `main` in Listing 17-11:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 # use blog::Post;
 
 fn main() {
@@ -668,7 +668,7 @@ The updated code in `main` is shown in Listing 17-21:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use blog::Post;
 
 fn main() {

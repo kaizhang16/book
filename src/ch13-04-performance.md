@@ -43,7 +43,7 @@ but not given them any values; although this code doesn’t have much meaning
 outside of its context, it’s still a concise, real-world example of how Rust
 translates high-level ideas to low-level code.
 
-```rust,ignore
+```rust
 let buffer: &mut [i32];
 let coefficients: [i64; 12];
 let qlp_shift: i16;

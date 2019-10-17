@@ -68,7 +68,7 @@ that we get from the newtype pattern discussed earlier.
 The main use case for type synonyms is to reduce repetition. For example, we
 might have a lengthy type like this:
 
-```rust,ignore
+```rust
 Box<dyn Fn() + Send + 'static>
 ```
 
@@ -151,7 +151,7 @@ qualified alias `std::io::Result<T>`—that is, a `Result<T, E>` with the `E`
 filled in as `std::io::Error`. The `Write` trait function signatures end up
 looking like this:
 
-```rust,ignore
+```rust
 pub trait Write {
     fn write(&mut self, buf: &[u8]) -> Result<usize>;
     fn flush(&mut self) -> Result<()>;
@@ -173,7 +173,7 @@ Rust has a special type named `!` that’s known in type theory lingo as the
 because it stands in the place of the return type when a function will never
 return. Here is an example:
 
-```rust,ignore
+```rust
 fn bar() -> ! {
     // --snip--
 }
@@ -205,7 +205,7 @@ At the time, we skipped over some details in this code. In Chapter 6 in [“The
 --> section, we discussed that `match` arms must all return the same type. So,
 for example, the following code doesn’t work:
 
-```rust,ignore,does_not_compile
+```rust
 let guess = match guess.trim().parse() {
     Ok(_) => 5,
     Err(_) => "hello",
@@ -232,7 +232,7 @@ The never type is useful with the `panic!` macro as well. Remember the `unwrap`
 function that we call on `Option<T>` values to produce a value or panic? Here
 is its definition:
 
-```rust,ignore
+```rust
 impl<T> Option<T> {
     pub fn unwrap(self) -> T {
         match self {
@@ -251,7 +251,7 @@ returning a value from `unwrap`, so this code is valid.
 
 One final expression that has the type `!` is a `loop`:
 
-```rust,ignore
+```rust
 print!("forever ");
 
 loop {
@@ -277,7 +277,7 @@ its own, is a DST. We can’t know how long the string is until runtime, meaning
 we can’t create a variable of type `str`, nor can we take an argument of type
 `str`. Consider the following code, which does not work:
 
-```rust,ignore,does_not_compile
+```rust
 let s1: str = "Hello there!";
 let s2: str = "How's it going?";
 ```
@@ -320,7 +320,7 @@ automatically implemented for everything whose size is known at compile time.
 In addition, Rust implicitly adds a bound on `Sized` to every generic function.
 That is, a generic function definition like this:
 
-```rust,ignore
+```rust
 fn generic<T>(t: T) {
     // --snip--
 }
@@ -328,7 +328,7 @@ fn generic<T>(t: T) {
 
 is actually treated as though we had written this:
 
-```rust,ignore
+```rust
 fn generic<T: Sized>(t: T) {
     // --snip--
 }
@@ -338,7 +338,7 @@ By default, generic functions will work only on types that have a known size at
 compile time. However, you can use the following special syntax to relax this
 restriction:
 
-```rust,ignore
+```rust
 fn generic<T: ?Sized>(t: &T) {
     // --snip--
 }

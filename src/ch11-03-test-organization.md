@@ -119,7 +119,7 @@ Let’s create an integration test. With the code in Listing 11-12 still in the
 
 <span class="filename">Filename: tests/integration_test.rs</span>
 
-```rust,ignore
+```rust
 use adder;
 
 #[test]
@@ -278,7 +278,7 @@ function from the `it_adds_two` test in *tests/integration_test.rs*:
 
 <span class="filename">Filename: tests/integration_test.rs</span>
 
-```rust,ignore
+```rust
 use adder;
 
 mod common;

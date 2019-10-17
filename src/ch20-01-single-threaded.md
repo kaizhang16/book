@@ -37,7 +37,7 @@ an incoming stream, it will print `Connection established!`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,no_run
+```rust
 use std::net::TcpListener;
 
 fn main() {
@@ -139,7 +139,7 @@ look like Listing 20-2.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,no_run
+```rust
 use std::io::prelude::*;
 use std::net::TcpStream;
 use std::net::TcpListener;

@@ -142,7 +142,7 @@ matches. The `$x` is replaced with each expression matched. When we call this
 macro with `vec![1, 2, 3];`, the code generated that replaces this macro call
 will be the following:
 
-```rust,ignore
+```rust
 let mut temp_vec = Vec::new();
 temp_vec.push(1);
 temp_vec.push(2);
@@ -183,7 +183,7 @@ macro.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 use proc_macro;
 
 #[some_attribute]
@@ -221,7 +221,7 @@ programmer to write code like Listing 19-30 using our crate.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use hello_macro::HelloMacro;
 use hello_macro_derive::HelloMacro;
 
@@ -256,7 +256,7 @@ pub trait HelloMacro {
 We have a trait and its function. At this point, our crate user could implement
 the trait to achieve the desired functionality, like so:
 
-```rust,ignore
+```rust
 use hello_macro::HelloMacro;
 
 struct Pancakes;
@@ -332,7 +332,7 @@ https://github.com/rust-lang/rust/pull/54658
 https://github.com/rust-lang/rust/issues/55599
 -->
 
-```rust,ignore
+```rust
 extern crate proc_macro;
 
 use crate::proc_macro::TokenStream;
@@ -389,7 +389,7 @@ operations on. This is where `syn` comes into play. The `parse` function in
 parsed Rust code. Listing 19-32 shows the relevant parts of the `DeriveInput`
 struct we get from parsing the `struct Pancakes;` string:
 
-```rust,ignore
+```rust
 DeriveInput {
     // --snip--
 
@@ -440,7 +440,7 @@ into a `DeriveInput` instance, let’s generate the code that implements the
 
 <span class="filename">Filename: hello_macro_derive/src/lib.rs</span>
 
-```rust,ignore
+```rust
 fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
     let name = &ast.ident;
     let gen = quote! {
@@ -525,7 +525,7 @@ enums; attributes can be applied to other items as well, such as functions.
 Here’s an example of using an attribute-like macro: say you have an attribute
 named `route` that annotates functions when using a web application framework:
 
-```rust,ignore
+```rust
 #[route(GET, "/")]
 fn index() {
 ```
@@ -533,7 +533,7 @@ fn index() {
 This `#[route]` attribute would be defined by the framework as a procedural
 macro. The signature of the macro definition function would look like this:
 
-```rust,ignore
+```rust
 #[proc_macro_attribute]
 pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream {
 ```
@@ -561,7 +561,7 @@ macro that might be called like so:
 
 [decl]: #declarative-macros-with-macro_rules-for-general-metaprogramming
 
-```rust,ignore
+```rust
 let sql = sql!(SELECT * FROM posts WHERE id=1);
 ```
 
@@ -569,7 +569,7 @@ This macro would parse the SQL statement inside it and check that it’s
 syntactically correct, which is much more complex processing than a
 `macro_rules!` macro can do. The `sql!` macro would be defined like this:
 
-```rust,ignore
+```rust
 #[proc_macro]
 pub fn sql(input: TokenStream) -> TokenStream {
 ```

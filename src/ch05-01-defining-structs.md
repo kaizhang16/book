@@ -271,7 +271,7 @@ itself. We’ll discuss traits in Chapter 10.
 >
 > <span class="filename">Filename: src/main.rs</span>
 >
-> ```rust,ignore,does_not_compile
+> ```rust
 > struct User {
 >     username: &str,
 >     email: &str,

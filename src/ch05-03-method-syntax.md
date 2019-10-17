@@ -129,7 +129,7 @@ method.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let rect1 = Rectangle { width: 30, height: 50 };
     let rect2 = Rectangle { width: 10, height: 40 };

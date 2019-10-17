@@ -108,7 +108,7 @@ we’ll demonstrate.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 enum List {
     Cons(i32, List),
     Nil,
@@ -128,7 +128,7 @@ Listing 15-3:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 use crate::List::{Cons, Nil};
 
 fn main() {

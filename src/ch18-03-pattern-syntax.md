@@ -531,7 +531,7 @@ that starts with an underscore. The syntax `_x` still binds the value to the
 variable, whereas `_` doesn’t bind at all. To show a case where this
 distinction matters, Listing 18-21 will provide us with an error.
 
-```rust,ignore,does_not_compile
+```rust
 let s = Some(String::from("Hello!"));
 
 if let Some(_s) = s {
@@ -626,7 +626,7 @@ compile.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let numbers = (2, 4, 8, 16, 32);
 

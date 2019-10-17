@@ -123,7 +123,7 @@ new thread to handle each stream within the `for` loop.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,no_run
+```rust
 # use std::thread;
 # use std::io::prelude::*;
 # use std::net::TcpListener;
@@ -162,7 +162,7 @@ struct we want to use instead of `thread::spawn`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,no_run
+```rust
 # use std::thread;
 # use std::io::prelude::*;
 # use std::net::TcpListener;
@@ -243,7 +243,7 @@ following code to the top of *src/bin/main.rs*:
 
 <span class="filename">Filename: src/bin/main.rs</span>
 
-```rust,ignore
+```rust
 use hello::ThreadPool;
 ```
 
@@ -326,7 +326,7 @@ the standard library `thread::spawn` implementation, so we can look at what
 bounds the signature of `thread::spawn` has on its parameter. The documentation
 shows us the following:
 
-```rust,ignore
+```rust
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
         F: FnOnce() -> T + Send + 'static,
@@ -454,7 +454,7 @@ without any threads should be an unrecoverable error. If you’re feeling
 ambitious, try to write a version of `new` with the following signature to
 compare both versions:
 
-```rust,ignore
+```rust
 pub fn new(size: usize) -> Result<ThreadPool, PoolCreationError> {
 ```
 
@@ -465,7 +465,7 @@ the pool, we can create those threads and store them in the `ThreadPool` struct
 before returning it. But how do we “store” a thread? Let’s take another look at
 the `thread::spawn` signature:
 
-```rust,ignore
+```rust
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
         F: FnOnce() -> T + Send + 'static,
@@ -485,7 +485,7 @@ returned a `ThreadPool` instance containing them.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,not_desired_behavior
+```rust
 use std::thread;
 
 pub struct ThreadPool {
@@ -730,7 +730,7 @@ the closure. The code in Listing 20-17 won’t quite compile yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 impl ThreadPool {
     // --snip--
     pub fn new(size: usize) -> ThreadPool {
@@ -933,7 +933,7 @@ shown in Listing 20-20 to `Worker::new`.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 // --snip--
 
 impl Worker {
@@ -1022,7 +1022,7 @@ shown in Listing 20-21.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 trait FnBox {
     fn call_box(self: Box<Self>);
 }
@@ -1140,7 +1140,7 @@ why we didn’t write the worker thread code as shown in Listing 20-22.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore,not_desired_behavior
+```rust
 // --snip--
 
 impl Worker {
