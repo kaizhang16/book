@@ -212,7 +212,7 @@ If someone using our library decides to implement a `SelectBox` struct that has
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use gui::Draw;
 
 struct SelectBox {
@@ -239,7 +239,7 @@ components. Listing 17-9 shows this implementation:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use gui::{Screen, Button};
 
 fn main() {
@@ -296,7 +296,7 @@ with a `String` as a component:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 use gui::Screen;
 
 fn main() {
@@ -397,7 +397,7 @@ rules of object safety in regard to trait objects. For example, let’s say we
 tried to implement the `Screen` struct in Listing 17-4 to hold types that
 implement the `Clone` trait instead of the `Draw` trait, like this:
 
-```rust,ignore,does_not_compile
+```rust
 pub struct Screen {
     pub components: Vec<Box<dyn Clone>>,
 }

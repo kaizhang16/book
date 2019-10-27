@@ -119,7 +119,7 @@ pointer `fn` as a return type, for example.
 
 The following code tries to return a closure directly, but it won’t compile:
 
-```rust,ignore,does_not_compile
+```rust
 fn returns_closure() -> Fn(i32) -> i32 {
     |x| x + 1
 }

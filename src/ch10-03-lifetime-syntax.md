@@ -24,7 +24,7 @@ program to reference data other than the data it’s intended to reference.
 Consider the program in Listing 10-17, which has an outer scope and an inner
 scope.
 
-```rust,ignore,does_not_compile
+```rust
 {
     let r;
 
@@ -81,7 +81,7 @@ The Rust compiler has a *borrow checker* that compares scopes to determine
 whether all borrows are valid. Listing 10-18 shows the same code as Listing
 10-17 but with annotations showing the lifetimes of the variables.
 
-```rust,ignore,does_not_compile
+```rust
 {
     let r;                // ---------+-- 'a
                           //          |
@@ -138,7 +138,7 @@ longest string is abcd`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let string1 = String::from("abcd");
     let string2 = "xyz";
@@ -166,7 +166,7 @@ won’t compile.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn longest(x: &str, y: &str) -> &str {
     if x.len() > y.len() {
         x
@@ -229,7 +229,7 @@ Here are some examples: a reference to an `i32` without a lifetime parameter, a
 reference to an `i32` that has a lifetime parameter named `'a`, and a mutable
 reference to an `i32` that also has the lifetime `'a`.
 
-```rust,ignore
+```rust
 &i32        // a reference
 &'a i32     // a reference with an explicit lifetime
 &'a mut i32 // a mutable reference with an explicit lifetime
@@ -348,7 +348,7 @@ compile.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let string1 = String::from("long string is long");
     let result;
@@ -426,7 +426,7 @@ this attempted implementation of the `longest` function that won’t compile:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn longest<'a>(x: &str, y: &str) -> &'a str {
     let result = String::from("really long string");
     result.as_str()
@@ -543,7 +543,7 @@ in early versions (pre-1.0) of Rust, this code wouldn’t have compiled because
 every reference needed an explicit lifetime. At that time, the function
 signature would have been written like this:
 
-```rust,ignore
+```rust
 fn first_word<'a>(s: &'a str) -> &'a str {
 ```
 
@@ -600,7 +600,7 @@ the lifetimes of the references in the signature of the `first_word` function
 in Listing 10-26 are. The signature starts without any lifetimes associated
 with the references:
 
-```rust,ignore
+```rust
 fn first_word(s: &str) -> &str {
 ```
 
@@ -608,7 +608,7 @@ Then the compiler applies the first rule, which specifies that each parameter
 gets its own lifetime. We’ll call it `'a` as usual, so now the signature is
 this:
 
-```rust,ignore
+```rust
 fn first_word<'a>(s: &'a str) -> &str {
 ```
 
@@ -616,7 +616,7 @@ The second rule applies because there is exactly one input lifetime. The second
 rule specifies that the lifetime of the one input parameter gets assigned to
 the output lifetime, so the signature is now this:
 
-```rust,ignore
+```rust
 fn first_word<'a>(s: &'a str) -> &'a str {
 ```
 
@@ -627,14 +627,14 @@ the lifetimes in this function signature.
 Let’s look at another example, this time using the `longest` function that had
 no lifetime parameters when we started working with it in Listing 10-21:
 
-```rust,ignore
+```rust
 fn longest(x: &str, y: &str) -> &str {
 ```
 
 Let’s apply the first rule: each parameter gets its own lifetime. This time we
 have two parameters instead of one, so we have two lifetimes:
 
-```rust,ignore
+```rust
 fn longest<'a, 'b>(x: &'a str, y: &'b str) -> &str {
 ```
 

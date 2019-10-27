@@ -30,7 +30,7 @@ shown in Listing 12-4.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 use std::env;
 use std::fs;
 

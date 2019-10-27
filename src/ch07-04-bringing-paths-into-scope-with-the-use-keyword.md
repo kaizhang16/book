@@ -264,7 +264,7 @@ we wanted to bring into scope. Recall that in the [“Generating a Random
 Number”][rand]<!-- ignore --> section in Chapter 2, we brought the `Rng` trait
 into scope and called the `rand::thread_rng` function:
 
-```rust,ignore
+```rust
 use rand::Rng;
 fn main() {
     let secret_number = rand::thread_rng().gen_range(1, 101);

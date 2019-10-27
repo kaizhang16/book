@@ -74,7 +74,7 @@ function `parse_config`, which we’ll define in *src/main.rs* for the moment.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -132,7 +132,7 @@ Listing 12-6 shows the improvements to the `parse_config` function.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 # use std::env;
 # use std::fs;
 #
@@ -227,7 +227,7 @@ shows the changes we need to make.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 # use std::env;
 #
 fn main() {
@@ -293,7 +293,7 @@ out of bounds` message.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 // --snip--
 fn new(args: &[String]) -> Config {
     if args.len() < 3 {
@@ -349,7 +349,7 @@ next listing.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 impl Config {
     fn new(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
@@ -393,7 +393,7 @@ program that the program exited with an error state.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::process;
 
 fn main() {
@@ -458,7 +458,7 @@ defining the function in *src/main.rs*.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     // --snip--
 
@@ -497,7 +497,7 @@ signature and body of `run`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::error::Error;
 
 // --snip--
@@ -565,7 +565,7 @@ with `Config::new` in Listing 12-10, but with a slight difference:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     // --snip--
 
@@ -610,7 +610,7 @@ compile until we modify *src/main.rs* in Listing 12-14.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 use std::error::Error;
 use std::fs;
 
@@ -642,7 +642,7 @@ binary crate in *src/main.rs*, as shown in Listing 12-14.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 use std::env;
 use std::process;
 

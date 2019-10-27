@@ -359,7 +359,7 @@ has the same behavior. We’ve added some spaces to line up the relevant parts.
 This illustrates how closure syntax is similar to function syntax except for
 the use of pipes and the amount of syntax that is optional:
 
-```rust,ignore
+```rust
 fn  add_one_v1   (x: u32) -> u32 { x + 1 }
 let add_one_v2 = |x: u32| -> u32 { x + 1 };
 let add_one_v3 = |x|             { x + 1 };
@@ -382,7 +382,7 @@ first time and a `u32` the second time, we’ll get an error.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 let example_closure = |x| x;
 
 let s = example_closure(String::from("hello"));
@@ -633,7 +633,7 @@ The first problem is that a `Cacher` instance assumes it will always get the
 same value for the parameter `arg` to the `value` method. That is, this test of
 `Cacher` will fail:
 
-```rust,ignore,panics
+```rust
 #[test]
 fn call_with_different_values() {
     let mut c = Cacher::new(|a| a);
@@ -713,7 +713,7 @@ code won’t compile:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let x = 4;
 
@@ -779,7 +779,7 @@ yet compile.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let x = vec![1, 2, 3];
 

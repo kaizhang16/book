@@ -56,7 +56,7 @@ instead.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore
+```rust
 fn main() {
     let args: Vec<String> = env::args().collect();
 

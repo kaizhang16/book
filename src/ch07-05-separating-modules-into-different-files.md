@@ -12,7 +12,7 @@ crates whose crate root file is *src/main.rs*.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 mod front_of_house;
 
 pub use crate::front_of_house::hosting;

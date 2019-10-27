@@ -184,7 +184,7 @@ won’t compile yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     for line in contents.lines() {
         // do something with line
@@ -209,7 +209,7 @@ Listing 12-18. Note this still won’t compile yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     for line in contents.lines() {
         if line.contains(query) {
@@ -231,7 +231,7 @@ shown in Listing 12-19.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut results = Vec::new();
 
@@ -278,7 +278,7 @@ will print each line returned from `search`:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.filename)?;
 

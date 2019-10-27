@@ -128,7 +128,7 @@ Recall that we can create raw pointers in safe code, but we can’t *dereference
 raw pointers and read the data being pointed to. In Listing 19-3, we use the
 dereference operator `*` on a raw pointer that requires an `unsafe` block.
 
-```rust,unsafe
+```rust
 let mut num = 5;
 
 let r1 = &num as *const i32;
@@ -177,7 +177,7 @@ responsibility for upholding the function’s contracts.
 Here is an unsafe function named `dangerous` that doesn’t do anything in its
 body:
 
-```rust,unsafe
+```rust
 unsafe fn dangerous() {}
 
 unsafe {
@@ -234,7 +234,7 @@ something like Listing 19-5, which won’t compile. For simplicity, we’ll
 implement `split_at_mut` as a function rather than a method and only for slices
 of `i32` values rather than for a generic type `T`.
 
-```rust,ignore,does_not_compile
+```rust
 fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
     let len = slice.len();
 
@@ -281,7 +281,7 @@ know code is okay, but Rust doesn’t, it’s time to reach for unsafe code.
 Listing 19-6 shows how to use an `unsafe` block, a raw pointer, and some calls
 to unsafe functions to make the implementation of `split_at_mut` work.
 
-```rust,unsafe
+```rust
 use std::slice;
 
 fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
@@ -335,7 +335,7 @@ In contrast, the use of `slice::from_raw_parts_mut` in Listing 19-7 would
 likely crash when the slice is used. This code takes an arbitrary memory
 location and creates a slice 10,000 items long.
 
-```rust,unsafe
+```rust
 use std::slice;
 
 let address = 0x01234usize;
@@ -369,7 +369,7 @@ responsibility falls on the programmer to ensure safety.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,unsafe
+```rust
 extern "C" {
     fn abs(input: i32) -> i32;
 }
@@ -460,7 +460,7 @@ static variable named `COUNTER`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,unsafe
+```rust
 static mut COUNTER: u32 = 0;
 
 fn add_to_count(inc: u32) {
@@ -501,7 +501,7 @@ compiler can’t verify. We can declare that a trait is `unsafe` by adding the
 `unsafe` keyword before `trait` and marking the implementation of the trait as
 `unsafe` too, as shown in Listing 19-11.
 
-```rust,unsafe
+```rust
 unsafe trait Foo {
     // methods go here
 }

@@ -33,7 +33,7 @@ function return value is gone. Second, note that we pass `&s1` into
 These ampersands are *references*, and they allow you to refer to some value
 without taking ownership of it. Figure 4-5 shows a diagram.
 
-<img alt="&String s pointing at String s1" src="img/trpl04-05.svg" class="center" />
+![](img/trpl04-05.pdf)
 
 <span class="caption">Figure 4-5: A diagram of `&String s` pointing at `String
 s1`</span>
@@ -83,7 +83,7 @@ Listing 4-6. Spoiler alert: it doesn’t work!
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let s = String::from("hello");
 
@@ -140,7 +140,7 @@ fail:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 let mut s = String::from("hello");
 
 let r1 = &mut s;
@@ -197,7 +197,7 @@ let r2 = &mut s;
 A similar rule exists for combining mutable and immutable references. This code
 results in an error:
 
-```rust,ignore,does_not_compile
+```rust
 let mut s = String::from("hello");
 
 let r1 = &s; // no problem
@@ -238,7 +238,7 @@ mutable reference is introduced:
 edition2018 not work. The bug is currently fixed in nightly, so when we update
 the book to >= 1.35, `ignore` can be removed from this example. -->
 
-```rust,edition2018,ignore
+```rust
 let mut s = String::from("hello");
 
 let r1 = &s; // no problem
@@ -274,7 +274,7 @@ compile-time error:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let reference_to_nothing = dangle();
 }
@@ -314,7 +314,7 @@ Let’s take a closer look at exactly what’s happening at each stage of our
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 fn dangle() -> &String { // dangle returns a reference to a String
 
     let s = String::from("hello"); // s is a new String

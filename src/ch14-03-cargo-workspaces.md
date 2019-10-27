@@ -144,7 +144,7 @@ function to call the `add_one` function, as in Listing 14-7.
 
 <span class="filename">Filename: adder/src/main.rs</span>
 
-```rust,ignore
+```rust
 use add_one;
 
 fn main() {

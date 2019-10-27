@@ -35,7 +35,7 @@ want to send over the channel.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 use std::sync::mpsc;
 
 fn main() {
@@ -166,7 +166,7 @@ this code isn’t allowed:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,does_not_compile
+```rust
 use std::thread;
 use std::sync::mpsc;
 

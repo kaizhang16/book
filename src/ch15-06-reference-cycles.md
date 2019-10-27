@@ -142,7 +142,7 @@ the heap won’t be dropped. The memory will just sit there with a count of 1,
 forever. To visualize this reference cycle, we’ve created a diagram in Figure
 15-4.
 
-<img alt="Reference cycle of lists" src="img/trpl15-04.svg" class="center" />
+![](img/trpl15-04.pdf)
 
 <span class="caption">Figure 15-4: A reference cycle of lists `a` and `b`
 pointing to each other</span>

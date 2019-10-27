@@ -33,7 +33,7 @@ $ cd hello_world
 
 For Windows CMD, enter this:
 
-```cmd
+```sh
 > mkdir "%USERPROFILE%\projects"
 > cd /d "%USERPROFILE%\projects"
 > mkdir hello_world
@@ -162,7 +162,7 @@ main  main.rs
 
 With CMD on Windows, you would enter the following:
 
-```cmd
+```sh
 > dir /B %= the /B option says to only show the file names =%
 main.exe
 main.pdb

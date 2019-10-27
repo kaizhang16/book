@@ -109,7 +109,7 @@ throughout the rest of the program. We do that in Listing 12-2.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust
 use std::env;
 
 fn main() {
